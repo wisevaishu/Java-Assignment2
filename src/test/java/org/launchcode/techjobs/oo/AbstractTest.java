@@ -68,13 +68,26 @@ public class AbstractTest {
     }
 
     protected String getJobString (Job job) throws NoSuchMethodException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
-        return String.format("\nID: %d\n" +
-                        "Name: %s\n" +
-                        "Employer: %s\n" +
-                        "Location: %s\n" +
-                        "Position Type: %s\n" +
-                        "Core Competency: %s\n", getJobId(job), getJobFieldString(job, "name", true), getJobFieldString(job, "employer", true), getJobFieldString(job, "location", true),
-                getJobFieldString(job, "positionType", true), getJobFieldString(job, "coreCompetency", true));
+//        return String.format("\nID: %d\n" +
+//                        "Name: %s\n" +
+//                        "Employer: %s\n" +
+//                        "Location: %s\n" +
+//                        "Position Type: %s\n" +
+//                        "Core Competency: %s\n", getJobId(job), getJobFieldString(job, "name", true), getJobFieldString(job, "employer", true), getJobFieldString(job, "location", true),
+//                getJobFieldString(job, "positionType", true), getJobFieldString(job, "coreCompetency", true));
+
+        return String.format("%sID: %d%s" +
+                        "Name: %s%s" +
+                        "Employer: %s%s" +
+                        "Location: %s%s" +
+                        "Position Type: %s%s" +
+                        "Core Competency: %s%s",
+                System.lineSeparator(), getJobId(job), System.lineSeparator(),
+                getJobFieldString(job, "name", true), System.lineSeparator(),
+                getJobFieldString(job, "employer", true), System.lineSeparator(),
+                getJobFieldString(job, "location", true), System.lineSeparator(),
+                getJobFieldString(job, "positionType", true), System.lineSeparator(),
+                getJobFieldString(job, "coreCompetency", true), System.lineSeparator());
     }
 
 }
